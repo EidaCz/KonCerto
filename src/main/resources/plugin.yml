@@ -1,0 +1,8 @@
+name: '${project.name}'
+version: ${project.version}
+main: ${java.mainClass}
+api-version: ${api-version}
+prefix: '${project.name}'
+authors: [ '${author}' ]
+description: '${project.description}'
+website: '${project.url}'
