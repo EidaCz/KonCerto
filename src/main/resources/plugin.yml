@@ -6,3 +6,5 @@ prefix: '${project.name}'
 authors: [ '${author}' ]
 description: '${project.description}'
 website: '${project.url}'
+depend: [ProtocolLib]
+softdepend: [KotatkovyKlub, RealisticSeasons]

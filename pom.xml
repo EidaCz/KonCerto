@@ -16,7 +16,7 @@
     <description>Custom audio discs plugin</description>
     <properties>
         <author>EidaCz</author>
-        <api-version>1.19</api-version>
+        <api-version>1.20</api-version>
         <java.mainClass>cz.eida.minecraft.koncerto.KonCerto</java.mainClass>
         <java.version>18</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +27,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.11.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -36,7 +36,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -60,12 +60,12 @@
 
     <repositories>
         <repository>
-            <id>papermc-repo</id>
-            <url>https://repo.papermc.io/repository/maven-public/</url>
+            <id>lumine</id>
+            <url>https://mvn.lumine.io/repository/maven-public/</url>
         </repository>
         <repository>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
+            <id>papermc-repo</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
     </repositories>
 
@@ -73,8 +73,22 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.comphenix.protocol</groupId>
+            <artifactId>ProtocolLib</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- RealisticSeasons optional support -->
+        <dependency>
+            <groupId>me.casperge.realisticseasons</groupId>
+            <artifactId>RealisticSeasons</artifactId>
+            <version>10.6.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/RealisticSeasons-10.6.2.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
