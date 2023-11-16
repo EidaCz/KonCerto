@@ -40,4 +40,12 @@ public final class KonCerto extends JavaPlugin {
     public static void main(String[] args) {
         System.out.println("This is a Paper plugin. Copy this jar file into your server plugin directory.");
     }
+
+    public boolean isSupported_RealisticSeasons() {
+        return getServer().getPluginManager().isPluginEnabled("RealisticSeasons");
+    }
+
+    public boolean isSupported_KotatkovyKlub() {
+        return getServer().getPluginManager().isPluginEnabled("KotatkovyKlub");
+    }
 }

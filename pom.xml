@@ -87,8 +87,14 @@
             <groupId>me.casperge.realisticseasons</groupId>
             <artifactId>RealisticSeasons</artifactId>
             <version>10.6.2</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/RealisticSeasons-10.6.2.jar</systemPath>
+            <scope>provided</scope>
+        </dependency>
+        <!-- KotatkovyKlub optional support -->
+        <dependency>
+            <groupId>cz.eida.minecraft</groupId>
+            <artifactId>KotatkovyKlub</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
