@@ -1,0 +1,13 @@
+# Messages translation
+lang: en
+
+music:
+  # Allow playing the same music from multiple sources
+  overlapping: false
+
+# Player resourcepack
+resourcepack:
+  # Kick player without downloaded resourcepack
+  force-kick: true
+  # Ignore failed download
+  ignore-if-failed: false

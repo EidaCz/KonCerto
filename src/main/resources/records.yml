@@ -1,0 +1,17 @@
+record:
+  trubadur:
+    namespace: music_cd.verdi
+    model: 1000
+    drop: true
+    title: "Trubadúr"
+    author: "el_smallwitch"
+    lore:
+      - "Verdi"
+      - "FHK 2020"
+  music_disc.cat:
+    model-data: 0
+    creeper-drop: true
+    title: Cat
+    author: C148
+    lore:
+      - "Minecraft originals"
