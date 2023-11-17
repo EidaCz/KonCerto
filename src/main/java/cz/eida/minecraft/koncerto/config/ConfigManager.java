@@ -32,6 +32,10 @@ public class ConfigManager {
     public void registerConfig(Plugin plugin) {
         this.plugin = plugin;
 
+        if (!plugin.getDataFolder().exists()) {
+            this.initialize();
+        }
+
         try {
             this.configuration = new Configuration(new File(this.plugin.getDataFolder(), "config.yml"));
         } catch (IOException e) {
