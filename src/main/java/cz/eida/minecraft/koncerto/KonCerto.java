@@ -29,16 +29,17 @@ public final class KonCerto extends JavaPlugin {
         // event handlers
         ListenerManager.getInstance().registerListeners(this);
 
-        getServer().getLogger().info("KonCerto plugin enabled.");
+        if (isSupported_KotatkovyKlub()) {
+            this.getLogger().info("Using KotatkovyKlub custom capabilities.");
+        }
+
+        if (isSupported_RealisticSeasons()) {
+            this.getLogger().info("Using RealisticSeasons custom capabilities.");
+        }
     }
 
     @Override
     public void onDisable() {
-        getServer().getLogger().info("KonCerto plugin disabled.");
-    }
-
-    public static void main(String[] args) {
-        System.out.println("This is a Paper plugin. Copy this jar file into your server plugin directory.");
     }
 
     public boolean isSupported_RealisticSeasons() {
@@ -47,5 +48,9 @@ public final class KonCerto extends JavaPlugin {
 
     public boolean isSupported_KotatkovyKlub() {
         return getServer().getPluginManager().isPluginEnabled("KotatkovyKlub");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("This is a PaperMC plugin. Copy this jar file into your server plugin directory.");
     }
 }
