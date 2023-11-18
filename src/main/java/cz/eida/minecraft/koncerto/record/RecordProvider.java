@@ -1,6 +1,7 @@
 package cz.eida.minecraft.koncerto.record;
 
 import cz.eida.minecraft.koncerto.KonCerto;
+import cz.eida.minecraft.koncerto.commands.selectors.Selectors;
 import cz.eida.minecraft.koncerto.config.ConfigManager;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -140,8 +141,20 @@ public class RecordProvider {
      * @return Record
      */
     public Record get(String namespace) {
+        if (recordsRegistered.containsKey(namespace)) {
+            return recordsRegistered.get(namespace);
+        } else {
+
+            if (namespace.equals(Selectors.RAND.getSymbol())) {
+                return getRandom();
+            }
+        }
 
         return null;
+    }
+
+    public List<String> list() {
+        return this.records;
     }
 
     /**
@@ -169,6 +182,8 @@ public class RecordProvider {
         }
 
         Random random = new Random();
-        return recordsRegistered.get((droppableOnly) ? droppableRecords.get(random.nextInt(droppableRecords.size())) : records.get(random.nextInt(records.size())));
+        return recordsRegistered.get(
+                (droppableOnly) ? droppableRecords.get(random.nextInt(droppableRecords.size())) : records.get(random.nextInt(records.size()))
+        );
     }
 }
