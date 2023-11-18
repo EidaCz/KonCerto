@@ -4,6 +4,7 @@ import cz.eida.minecraft.koncerto.commands.CommandManager;
 import cz.eida.minecraft.koncerto.config.ConfigManager;
 import cz.eida.minecraft.koncerto.listeners.ListenerManager;
 import cz.eida.minecraft.koncerto.namespace.KonCertoNamespace;
+import cz.eida.minecraft.koncerto.record.RecordProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -16,7 +17,7 @@ public final class KonCerto extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        // basic setup
+        // basic configuration setup
         ConfigManager.getInstance().registerConfig(this);
         ConfigManager.getInstance().load();
 
@@ -29,12 +30,15 @@ public final class KonCerto extends JavaPlugin {
         // event handlers
         ListenerManager.getInstance().registerListeners(this);
 
+        // record database setup
+        RecordProvider.getInstance().registerRecordProvider(this);
+
         if (isSupported_KotatkovyKlub()) {
-            this.getLogger().info("Using KotatkovyKlub custom capabilities.");
+            this.getLogger().info("Using KotatkovyKlub additional capabilities.");
         }
 
         if (isSupported_RealisticSeasons()) {
-            this.getLogger().info("Using RealisticSeasons custom capabilities.");
+            this.getLogger().info("Using RealisticSeasons additional capabilities.");
         }
     }
 

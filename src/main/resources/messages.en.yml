@@ -1,3 +1,5 @@
+records:
+  loaded: "Loaded __COUNT__ custom records."
 resourcepack:
   declined: "Server resourcepack must be enabled."
   failed: "Resourcepack download failed. Please re-join server to try again."

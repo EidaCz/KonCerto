@@ -1,3 +1,5 @@
+records:
+  loaded: "Bylo načteno __COUNT__ vlastních disků."
 resourcepack:
   declined: "Serverový balíček musí být povolen."
   failed: "Nezdařilo se stáhnout balíček, zkuste se přihlásit znovu."

@@ -12,15 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Disc representation.
+ * Disc record representation.
  *
  * @author EidaCz
  */
 public class Record {
 
-    private KonCerto plugin;
-
+    /** disk base material = Music Disc 11 */
     private final Material BASE_DISC = Material.MUSIC_DISC_11;
+    /**
+     * plugin hook
+     */
+    private KonCerto plugin;
 
 
     /** disc namespace */
@@ -41,6 +44,9 @@ public class Record {
     // TODO probability settings
     // TODO RealisticSeasons settings
 
+    /**
+     * Blank constructor.
+     */
     public Record() {
     }
 
@@ -62,8 +68,10 @@ public class Record {
                   String author,
                   @Nullable List<String> lore) {
 
+        // plugin hook
         this.plugin = plugin;
 
+        // register namespace
         this.namespace = namespace;
         this.nsk = new NamespacedKey(this.plugin, namespace);
 
@@ -112,6 +120,11 @@ public class Record {
         return lore;
     }
 
+    /**
+     * Return lore lines as Component list.
+     *
+     * @return Component list of lore lines
+     */
     public List<Component> getLoreComponent() {
         List<Component> lore = new ArrayList<>();
         for (String loreLine : this.lore) {
@@ -145,6 +158,11 @@ public class Record {
         this.lore = lore;
     }
 
+    /**
+     * Get disc as item.
+     *
+     * @return custom disc a item
+     */
     public ItemStack getItem() {
 
         if (plugin.isSupported_KotatkovyKlub()) {
@@ -166,6 +184,11 @@ public class Record {
         return discItem;
     }
 
+    /**
+     * Debugging lines.
+     *
+     * @return record info
+     */
     @Override
     public String toString() {
         StringBuilder info = new StringBuilder();
