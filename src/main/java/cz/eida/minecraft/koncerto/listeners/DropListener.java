@@ -1,6 +1,6 @@
 package cz.eida.minecraft.koncerto.listeners;
 
-import org.bukkit.Material;
+import cz.eida.minecraft.koncerto.record.RecordProvider;
 import org.bukkit.entity.Creeper;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,14 +36,20 @@ public class DropListener implements Listener {
         for (ItemStack item : drops) {
             if (item.getType().isRecord()) {
                 disc = item;
+
+                // replace disc with custom record
+                // TODO implement probabilty and seasonal settings
+                drops.remove(item);
+                disc = RecordProvider.getInstance().getRandom(true).getItem();
+                drops.add(disc);
+
                 break;
             }
         }
+
         // not dropped
         if (disc == null) return;
 
-        // replace disc with custom record
-        // TODO
     }
 
 
