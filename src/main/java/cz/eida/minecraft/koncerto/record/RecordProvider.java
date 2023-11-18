@@ -22,7 +22,8 @@ public class RecordProvider {
 
     private final String recordDataFile = "records.yml";
     private YamlConfiguration recordDataSource;
-    private Map<Integer, Record> records;
+    private List<Record> records;
+    private List<Record> droppableRecords;
 
     public RecordProvider(Plugin plugin) {
         this.plugin = plugin;
@@ -43,8 +44,8 @@ public class RecordProvider {
             }
         }
 
-        records = new HashMap<>();
-        int recordCounter = 0;
+        records = new ArrayList<>();
+        droppableRecords = new ArrayList<>();
 
         for (ListIterator<Map<?,?>> rec = recordDataSource.getMapList("records").listIterator(); rec.hasNext(); ) {
 
@@ -59,8 +60,11 @@ public class RecordProvider {
                     (List<String>) internalData.get("lore")
             );
 
-            records.put(recordCounter, record);
-            recordCounter++;
+            records.add(record);
+
+            if ((Boolean) internalData.get("drop")) {
+                droppableRecords.add(record);
+            }
         }
     }
 
@@ -74,17 +78,19 @@ public class RecordProvider {
     }
 
     public Record getRandom() {
+        return getRandom(false);
+    }
 
-        if (records.size() == 0) {
+    public Record getRandom(Boolean droppableOnly) {
+        if (!droppableOnly && records.size() == 0) {
+            return null;
+        }
+
+        if (droppableOnly && droppableRecords.size() == 0) {
             return null;
         }
 
         Random random = new Random();
-        return records.get(random.nextInt(records.size()));
-    }
-
-    // TODO ?
-    public static Record recordFactory() {
-        return null;//return new Record();
+        return (droppableOnly) ? droppableRecords.get(random.nextInt(droppableRecords.size())) : records.get(random.nextInt(records.size()));
     }
 }
