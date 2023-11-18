@@ -9,11 +9,16 @@ import org.bukkit.plugin.Plugin;
  */
 public class CommandManager {
 
+    /**
+     * instance
+     */
     private static CommandManager commandManager;
 
-    public void registerCommands(Plugin plugin) {
-    }
-
+    /**
+     * Get singleton.
+     *
+     * @return this instance
+     */
     public static CommandManager getInstance() {
 
         if (commandManager == null) {
@@ -23,4 +28,14 @@ public class CommandManager {
         return commandManager;
     }
 
+    /**
+     * Register commands to plugin.
+     *
+     * @param plugin KonCerto plugin
+     */
+    public void registerCommands(Plugin plugin) {
+
+        new CmdGive().registerCommand(plugin);
+
+    }
 }

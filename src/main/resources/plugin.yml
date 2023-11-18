@@ -8,3 +8,20 @@ description: ${project.description}
 website: ${project.url}
 depend: [ ProtocolLib ]
 softdepend: [ KotatkovyKlub, RealisticSeasons ]
+
+commands:
+  koncerto.give:
+    aliases: [ kcgive, kcg ]
+    description: Give KonCerto record.
+  koncerto.play:
+    aliases: [ kcplay, kcp ]
+    description: Play KonCerto record.
+
+permissions:
+  koncerto.*:
+    description: All KonCerto permissions.
+    children:
+      koncerto.play: true
+  koncerto.play:
+    description: Play any namespaced record.
+    default: op
