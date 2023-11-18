@@ -26,10 +26,14 @@ public class RecordProvider {
     private Plugin plugin;
     /** data source */
     private YamlConfiguration recordDataSource;
+    /**
+     * all records in database
+     */
+    private Map<String, Record> recordsRegistered;
     /** list of all records */
-    private List<Record> records;
+    private List<String> records;
     /** list of droppable-only records */
-    private List<Record> droppableRecords;
+    private List<String> droppableRecords;
 
     /**
      * Blank constructor.
@@ -79,6 +83,7 @@ public class RecordProvider {
             }
         }
 
+        recordsRegistered = new HashMap<>();
         records = new ArrayList<>();
         droppableRecords = new ArrayList<>();
 
@@ -96,10 +101,12 @@ public class RecordProvider {
                         (List<String>) internalData.get("lore")
                 );
 
-                records.add(record);
+
+                recordsRegistered.put(record.getNamespace(), record);
+                records.add(record.getNamespace());
 
                 if ((Boolean) internalData.get("drop")) {
-                    droppableRecords.add(record);
+                    droppableRecords.add(record.getNamespace());
                 }
             }
         } catch (NullPointerException e) {
@@ -127,7 +134,18 @@ public class RecordProvider {
     }
 
     /**
-     * Get ranom record.
+     * Get record by its namespace.
+     *
+     * @param namespace record namespace
+     * @return Record
+     */
+    public Record get(String namespace) {
+
+        return null;
+    }
+
+    /**
+     * Get random record.
      *
      * @return a record
      */
@@ -151,6 +169,6 @@ public class RecordProvider {
         }
 
         Random random = new Random();
-        return (droppableOnly) ? droppableRecords.get(random.nextInt(droppableRecords.size())) : records.get(random.nextInt(records.size()));
+        return recordsRegistered.get((droppableOnly) ? droppableRecords.get(random.nextInt(droppableRecords.size())) : records.get(random.nextInt(records.size())));
     }
 }
