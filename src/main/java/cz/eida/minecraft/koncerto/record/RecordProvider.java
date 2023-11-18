@@ -47,7 +47,7 @@ public class RecordProvider {
         records = new ArrayList<>();
         droppableRecords = new ArrayList<>();
 
-        for (ListIterator<Map<?,?>> rec = recordDataSource.getMapList("records").listIterator(); rec.hasNext(); ) {
+        for (ListIterator<?> rec = recordDataSource.getObject("records", List.class).listIterator(); rec.hasNext(); ) {
 
             Map<String,?> internalData = (Map<String,?>) rec.next();
             Record record = new Record(
@@ -65,6 +65,8 @@ public class RecordProvider {
             if ((Boolean) internalData.get("drop")) {
                 droppableRecords.add(record);
             }
+
+            plugin.getLogger().info(record.toString());
         }
     }
 

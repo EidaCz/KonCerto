@@ -7,6 +7,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class Record {
     /** disc author */
     private String author;
     /** disc custom lore, multiple lines */
-    private List<String> lore = new ArrayList<>();
+    private List<String> lore;
 
     // TODO probability settings
     // TODO RealisticSeasons settings
@@ -53,15 +54,23 @@ public class Record {
      * @param author disc author
      * @param lore custom lore lines
      */
-    public Record(KonCerto plugin, String namespace, Integer model, boolean drop, String title, String author, List<String> lore) {
+    public Record(KonCerto plugin,
+                  String namespace,
+                  @Nullable Integer model,
+                  @Nullable Boolean drop,
+                  String title,
+                  String author,
+                  @Nullable List<String> lore) {
 
         this.plugin = plugin;
 
         this.namespace = namespace;
         this.nsk = new NamespacedKey(this.plugin, namespace);
 
-        this.model = model;
-        this.drop = drop;
+        // retain default values
+        if (model != null) this.model = model;
+        if (drop != null) this.drop = drop;
+
         this.title = title;
         this.author = author;
         this.lore = lore;
@@ -76,14 +85,7 @@ public class Record {
      * @param author disc author
      */
     public Record(KonCerto plugin, String namespace, String title, String author) {
-
-        this.plugin = plugin;
-
-        this.namespace = namespace;
-        this.nsk = new NamespacedKey(this.plugin, namespace);
-
-        this.title = title;
-        this.author = author;
+        this(plugin, namespace, null, null, title, author, null);
     }
 
     public String getNamespace() {
@@ -94,7 +96,7 @@ public class Record {
         return model;
     }
 
-    public boolean isDrop() {
+    public boolean isDroppable() {
         return drop;
     }
 
@@ -127,7 +129,7 @@ public class Record {
         this.model = model;
     }
 
-    public void setDrop(boolean drop) {
+    public void setDroppable(boolean drop) {
         this.drop = drop;
     }
 
@@ -178,7 +180,7 @@ public class Record {
         info.append(", ");
         info.append("model=" + getModel());
         info.append(", ");
-        info.append("droppable=" + isDrop());
+        info.append("droppable=" + isDroppable());
         info.append(", ");
         info.append("lore=" + getLore());
         info.append(", ");

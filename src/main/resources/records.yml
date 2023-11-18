@@ -9,7 +9,6 @@ records:
       - "FHK 2020"
 
   - namespace: music_cd.bach
-    model: 1000
     drop: false
     title: "Bach BWV 565"
     author: "AtelonCz"
