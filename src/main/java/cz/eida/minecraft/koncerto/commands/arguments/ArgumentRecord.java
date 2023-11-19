@@ -1,4 +1,4 @@
-package cz.eida.minecraft.koncerto.commands;
+package cz.eida.minecraft.koncerto.commands.arguments;
 
 import cz.eida.minecraft.koncerto.commands.selectors.Selectors;
 import cz.eida.minecraft.koncerto.record.RecordProvider;
@@ -12,9 +12,9 @@ import java.util.List;
  *
  * @author EidaCz
  */
-public class ArgRecord extends CommandArgument {
+public class ArgumentRecord extends CommandArgument {
 
-    public ArgRecord(Boolean mandatory) {
+    public ArgumentRecord(Boolean mandatory) {
         super(mandatory);
     }
 

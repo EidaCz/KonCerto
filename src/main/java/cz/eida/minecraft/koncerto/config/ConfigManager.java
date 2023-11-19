@@ -23,7 +23,7 @@ public class ConfigManager {
     /** global configuration */
     private Configuration configuration;
     /** global translation */
-    private Messages messages;
+    private LocalizedMessages messages;
 
     public ConfigManager() {
 
@@ -53,7 +53,7 @@ public class ConfigManager {
         }
 
         try {
-            this.messages = new Messages(messageFile);
+            this.messages = new LocalizedMessages(messageFile);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (InvalidConfigurationException e) {

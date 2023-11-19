@@ -1,5 +1,7 @@
-package cz.eida.minecraft.koncerto.commands;
+package cz.eida.minecraft.koncerto.commands.executors;
 
+import cz.eida.minecraft.koncerto.commands.ECommands;
+import cz.eida.minecraft.koncerto.commands.arguments.CommandArgument;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -17,11 +19,6 @@ import java.util.List;
 public class CommandExecutorAdapter implements CommandExecutor, TabCompleter {
 
     /**
-     * base command
-     */
-    private final String BASE = "koncerto";
-
-    /**
      * sub command
      */
     private final String command;
@@ -31,7 +28,7 @@ public class CommandExecutorAdapter implements CommandExecutor, TabCompleter {
     private final List<CommandArgument> arguments;
 
     public CommandExecutorAdapter(String command) {
-        this.command = BASE + "." + command;
+        this.command = ECommands.BASE.getCommandBase() + "." + command;
         this.arguments = new ArrayList<>();
     }
 
@@ -57,7 +54,7 @@ public class CommandExecutorAdapter implements CommandExecutor, TabCompleter {
         return true;
     }
 
-    void registerCommand(Plugin plugin) {
+    public void registerCommand(Plugin plugin) {
         final PluginCommand pluginCommand = plugin.getServer()
                 .getPluginCommand(this.command);
         pluginCommand.setExecutor(this);

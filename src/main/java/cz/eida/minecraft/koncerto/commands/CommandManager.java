@@ -1,5 +1,6 @@
 package cz.eida.minecraft.koncerto.commands;
 
+import cz.eida.minecraft.koncerto.commands.executors.CmdGive;
 import org.bukkit.plugin.Plugin;
 
 /**

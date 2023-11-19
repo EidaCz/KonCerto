@@ -1,5 +1,8 @@
-package cz.eida.minecraft.koncerto.commands;
+package cz.eida.minecraft.koncerto.commands.executors;
 
+import cz.eida.minecraft.koncerto.commands.ECommands;
+import cz.eida.minecraft.koncerto.commands.arguments.ArgumentPlayer;
+import cz.eida.minecraft.koncerto.commands.arguments.ArgumentRecord;
 import cz.eida.minecraft.koncerto.commands.selectors.PlayerSelector;
 import cz.eida.minecraft.koncerto.record.Record;
 import cz.eida.minecraft.koncerto.record.RecordProvider;
@@ -20,9 +23,9 @@ public class CmdGive extends CommandExecutorAdapter {
         // give
         super(ECommands.GIVE.getCommandBase());
         // record namespace
-        addArgument(new ArgRecord(true));
+        addArgument(new ArgumentRecord(true));
         // [player(s)]
-        addArgument(new ArgPlayer(true));
+        addArgument(new ArgumentPlayer(true));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package cz.eida.minecraft.koncerto.commands;
+package cz.eida.minecraft.koncerto.commands.arguments;
 
 import cz.eida.minecraft.koncerto.commands.selectors.PlayerSelector;
 import cz.eida.minecraft.koncerto.commands.selectors.Selectors;
@@ -9,9 +9,9 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArgPlayer extends CommandArgument {
+public class ArgumentPlayer extends CommandArgument {
 
-    public ArgPlayer(Boolean mandatory) {
+    public ArgumentPlayer(Boolean mandatory) {
         super(mandatory);
     }
 

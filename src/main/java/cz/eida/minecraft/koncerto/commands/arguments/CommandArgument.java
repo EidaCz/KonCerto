@@ -1,4 +1,4 @@
-package cz.eida.minecraft.koncerto.commands;
+package cz.eida.minecraft.koncerto.commands.arguments;
 
 /**
  * Argument abstract.

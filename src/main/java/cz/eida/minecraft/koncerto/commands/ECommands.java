@@ -7,6 +7,7 @@ package cz.eida.minecraft.koncerto.commands;
  */
 public enum ECommands {
 
+    BASE("koncerto"),
     GIVE("give"),
     PLAY("play"),
     NONE("");
