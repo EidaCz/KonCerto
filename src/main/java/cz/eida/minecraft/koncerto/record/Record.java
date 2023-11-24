@@ -4,6 +4,7 @@ import cz.eida.minecraft.koncerto.KonCerto;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -174,6 +175,7 @@ public class Record {
 
         discMeta.setCustomModelData(this.model);
         discMeta.displayName(Component.text(this.author + " - " + this.title));
+        discMeta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
 
         if (this.lore != null) {
             discMeta.lore(getLoreComponent());
