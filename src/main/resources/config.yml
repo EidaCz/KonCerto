@@ -11,3 +11,5 @@ resourcepack:
   player-force-kick: true
   # Ignore failed download
   player-ignore-if-failed: false
+  # Allow only records supported by server resource pack
+  records-supported-only: true
