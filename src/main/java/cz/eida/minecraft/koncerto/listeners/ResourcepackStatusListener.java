@@ -30,13 +30,13 @@ public class ResourcepackStatusListener implements Listener {
             public void run() {
 
                 if (e.getStatus().equals(PlayerResourcePackStatusEvent.Status.DECLINED)
-                        && ConfigManager.getInstance().getConfiguration().getBoolean("resourcepack.force-kick") ) {
+                        && ConfigManager.getInstance().getConfiguration().getBoolean("resourcepack.player-force-kick")) {
                     e.getPlayer().kickPlayer(ConfigManager.getInstance().getMessages().getString("resourcepack.declined"));
                     return;
                 }
 
                 if (e.getStatus().equals(PlayerResourcePackStatusEvent.Status.FAILED_DOWNLOAD)
-                        && !ConfigManager.getInstance().getConfiguration().getBoolean("resourcepack.ignore-if-failed") ) {
+                        && !ConfigManager.getInstance().getConfiguration().getBoolean("resourcepack.player-ignore-if-failed")) {
                     e.getPlayer().kickPlayer(ConfigManager.getInstance().getMessages().getString("resourcepack.failed"));
                     return;
                 }

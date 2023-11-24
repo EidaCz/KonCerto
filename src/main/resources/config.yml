@@ -8,6 +8,6 @@ music:
 # Player resourcepack
 resourcepack:
   # Kick player without downloaded resourcepack
-  force-kick: true
+  player-force-kick: true
   # Ignore failed download
-  ignore-if-failed: false
+  player-ignore-if-failed: false
