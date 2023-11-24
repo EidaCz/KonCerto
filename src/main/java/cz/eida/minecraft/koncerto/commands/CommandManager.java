@@ -1,6 +1,8 @@
 package cz.eida.minecraft.koncerto.commands;
 
 import cz.eida.minecraft.koncerto.commands.executors.CmdGive;
+import cz.eida.minecraft.koncerto.commands.executors.CmdPlay;
+import cz.eida.minecraft.koncerto.commands.executors.CmdStop;
 import org.bukkit.plugin.Plugin;
 
 /**
@@ -37,6 +39,8 @@ public class CommandManager {
     public void registerCommands(Plugin plugin) {
 
         new CmdGive().registerCommand(plugin);
+        new CmdPlay().registerCommand(plugin);
+        new CmdStop().registerCommand(plugin);
 
     }
 }

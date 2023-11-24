@@ -3,6 +3,7 @@ package cz.eida.minecraft.koncerto.record;
 import cz.eida.minecraft.koncerto.KonCerto;
 import cz.eida.minecraft.koncerto.commands.selectors.Selectors;
 import cz.eida.minecraft.koncerto.config.ConfigManager;
+import cz.eida.minecraft.koncerto.config.ResourcePackReader;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
@@ -102,12 +103,17 @@ public class RecordProvider {
                         (List<String>) internalData.get("lore")
                 );
 
+                // register only records supported by resourcepack
+                if (ConfigManager.getInstance().getConfiguration().getBoolean("resourcepack.records-supported-only")
+                        && ResourcePackReader.getInstance().getResourcepackRecords() != null
+                        && ResourcePackReader.getInstance().getResourcepackRecords().contains(record.getNamespace())) {
 
-                recordsRegistered.put(record.getNamespace(), record);
-                records.add(record.getNamespace());
+                    recordsRegistered.put(record.getNamespace(), record);
+                    records.add(record.getNamespace());
 
-                if ((Boolean) internalData.get("drop")) {
-                    droppableRecords.add(record.getNamespace());
+                    if ((Boolean) internalData.get("drop")) {
+                        droppableRecords.add(record.getNamespace());
+                    }
                 }
             }
         } catch (NullPointerException e) {

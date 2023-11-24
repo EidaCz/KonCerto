@@ -61,8 +61,9 @@ public class ArgumentValue extends CommandArgument {
      *
      * @param name custom name
      */
-    public void setName(String name) {
+    public ArgumentValue setName(String name) {
         this.valueName = name;
+        return this;
     }
 
     @Override

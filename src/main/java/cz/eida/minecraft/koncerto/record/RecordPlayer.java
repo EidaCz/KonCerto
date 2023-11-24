@@ -24,6 +24,12 @@ public class RecordPlayer {
         // TODO - provider
     }
 
+    public RecordPlayer(Record record) {
+        this.recordNamespace = record.getNamespace();
+        this.volume = VOLUME;
+        this.pitch = 1.0f;
+    }
+
     /**
      * Generic player for given sound namespace.
      *
@@ -75,6 +81,15 @@ public class RecordPlayer {
     }
 
     /**
+     * Play sound to player.
+     *
+     * @param player Player
+     */
+    public void play(Player player) {
+        player.playSound(player.getLocation(), recordNamespace, SoundCategory.RECORDS, volume, pitch);
+    }
+
+    /**
      * Stop receiving sound at given location.
      *
      * @param loc location
@@ -86,5 +101,14 @@ public class RecordPlayer {
                 player.stopSound(recordNamespace, SoundCategory.RECORDS);
             }
         }
+    }
+
+    /**
+     * Stop playing sound to player.
+     *
+     * @param player Player
+     */
+    public void stop(Player player) {
+        player.stopSound(recordNamespace, SoundCategory.RECORDS);
     }
 }

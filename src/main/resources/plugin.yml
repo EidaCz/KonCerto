@@ -19,6 +19,12 @@ commands:
     aliases: [ kcplay, kcp ]
     permission: koncerto.play
     description: Play KonCerto record.
+    usage: /kcplay <record> <player> [pitch] [volume]
+  koncerto.stop:
+    aliases: [ kcstop, kcs ]
+    permission: koncerto.stop
+    description: Stop playing KonCerto record.
+    usage: /kcstop <record> <player>
 
 permissions:
   koncerto.*:
@@ -26,9 +32,13 @@ permissions:
     children:
       koncerto.give: true
       koncerto.play: true
+      koncerto.stop: true
   koncerto.give:
     description:
     default: op
   koncerto.play:
     description: Play any namespaced record.
+    default: op
+  koncerto.stop:
+    description: Stop playing namespaced record.
     default: op

@@ -10,6 +10,7 @@ public enum ECommands {
     BASE("koncerto"),
     GIVE("give"),
     PLAY("play"),
+    STOP("stop"),
     NONE("");
 
     private String commandBase;
