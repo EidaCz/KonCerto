@@ -40,6 +40,9 @@ public final class KonCerto extends JavaPlugin {
         // notifier
         KonCertoNotifier.getInstance().register(this);
 
+        // resource pack reader
+        ResourcePackReader.getInstance().register(this);
+
         // namespace setup
         KonCertoNamespace.registerNamespace(this);
 
@@ -51,9 +54,6 @@ public final class KonCerto extends JavaPlugin {
 
         // record database setup
         RecordProvider.getInstance().registerRecordProvider(this);
-
-        // resource pack reader
-        ResourcePackReader.getInstance().register(this);
 
         if (isSupported_KotatkovyKlub()) {
             KonCertoNotifier.getInstance().getLogger().info("Using KotatkovyKlub additional capabilities.");
