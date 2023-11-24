@@ -12,16 +12,23 @@ softdepend: [ KotatkovyKlub, RealisticSeasons ]
 commands:
   koncerto.give:
     aliases: [ kcgive, kcg ]
+    permission: koncerto.give
     description: Give KonCerto record.
+    usage: /kcgive <record> <player>
   koncerto.play:
     aliases: [ kcplay, kcp ]
+    permission: koncerto.play
     description: Play KonCerto record.
 
 permissions:
   koncerto.*:
     description: All KonCerto permissions.
     children:
+      koncerto.give: true
       koncerto.play: true
+  koncerto.give:
+    description:
+    default: op
   koncerto.play:
     description: Play any namespaced record.
     default: op
