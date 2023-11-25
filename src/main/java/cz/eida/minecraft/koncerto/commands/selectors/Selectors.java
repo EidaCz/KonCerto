@@ -14,6 +14,7 @@ public enum Selectors {
     SELF("@s", true, false),
     WORLD("@w", true, false),
     RAND("@r", true, true),
+    RELATIVE("~", false, false),
     NONE("##", false, false);
 
     private String symbol;

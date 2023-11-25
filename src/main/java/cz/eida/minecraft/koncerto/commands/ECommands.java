@@ -10,6 +10,7 @@ public enum ECommands {
     BASE("koncerto"),
     GIVE("give"),
     PLAY("play"),
+    PLAY_AT("playat"),
     STOP("stop"),
     NONE("");
 

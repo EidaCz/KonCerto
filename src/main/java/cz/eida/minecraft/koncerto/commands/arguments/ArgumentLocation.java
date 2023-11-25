@@ -1,5 +1,6 @@
 package cz.eida.minecraft.koncerto.commands.arguments;
 
+import cz.eida.minecraft.koncerto.commands.selectors.Selectors;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
@@ -46,7 +47,7 @@ public class ArgumentLocation extends CommandArgument {
 
         final List<String> suggestions = new ArrayList<>();
         // current position
-        suggestions.add("~");
+        suggestions.add(Selectors.RELATIVE.getSymbol());
 
         // targeted block?
         final Block block = player.getTargetBlockExact(4);
@@ -79,5 +80,5 @@ public class ArgumentLocation extends CommandArgument {
         return suggestions;
     }
 
-    enum Axis {X, Y, Z}
+    public enum Axis {X, Y, Z}
 }

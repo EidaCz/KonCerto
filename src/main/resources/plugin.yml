@@ -20,6 +20,10 @@ commands:
     permission: koncerto.play
     description: Play KonCerto record.
     usage: /kcplay <record> <player> [pitch] [volume]
+  koncerto.playat:
+    aliases: [ kcplayat, kcpat ]
+    permission: koncerto.play
+    usage: /kcplayat <record> <X> <Y> <Z> [pitch] [volume]
   koncerto.stop:
     aliases: [ kcstop, kcs ]
     permission: koncerto.stop

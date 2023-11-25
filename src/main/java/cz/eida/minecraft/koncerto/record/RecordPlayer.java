@@ -76,7 +76,7 @@ public class RecordPlayer {
             stop(loc);
         }
 
-        // play sound
+        // play in world
         world.playSound(loc, recordNamespace, SoundCategory.RECORDS, volume, pitch);
     }
 
@@ -86,6 +86,12 @@ public class RecordPlayer {
      * @param player Player
      */
     public void play(Player player) {
+
+        // stop if overlapping is not allowed
+        if (!ConfigManager.getInstance().getConfiguration().getBoolean("music.overlapping")) {
+            stop(player);
+        }
+
         player.playSound(player.getLocation(), recordNamespace, SoundCategory.RECORDS, volume, pitch);
     }
 
@@ -98,7 +104,7 @@ public class RecordPlayer {
         // loop players
         for (Player player : loc.getWorld().getPlayers()) {
             if (player.getLocation().distance(loc) <= VOLUME * RANGE) {
-                player.stopSound(recordNamespace, SoundCategory.RECORDS);
+                stop(player);
             }
         }
     }
