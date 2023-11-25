@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Creeper drop event listener.
@@ -38,10 +39,14 @@ public class DropListener implements Listener {
                 disc = item;
 
                 // replace disc with custom record
-                // TODO implement probabilty and seasonal settings
-                drops.remove(item);
-                disc = RecordProvider.getInstance().getRandom(true).getItem();
-                drops.add(disc);
+
+                // TODO implement custom probability and seasonal settings
+                Random random = new Random();
+                if (random.nextInt(100) > 45) {
+                    drops.remove(item);
+                    disc = RecordProvider.getInstance().getRandom(true).getItem();
+                    drops.add(disc);
+                }
 
                 break;
             }

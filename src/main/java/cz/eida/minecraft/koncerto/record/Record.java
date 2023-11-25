@@ -20,7 +20,7 @@ import java.util.List;
 public class Record {
 
     /** disk base material = Music Disc 11 */
-    private final Material BASE_DISC = Material.MUSIC_DISC_11;
+    public static final Material BASE_DISC = Material.MUSIC_DISC_11;
     /**
      * plugin hook
      */

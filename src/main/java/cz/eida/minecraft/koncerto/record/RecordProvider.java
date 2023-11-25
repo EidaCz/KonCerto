@@ -5,6 +5,7 @@ import cz.eida.minecraft.koncerto.commands.selectors.Selectors;
 import cz.eida.minecraft.koncerto.config.ConfigManager;
 import cz.eida.minecraft.koncerto.config.ResourcePackReader;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
@@ -191,5 +192,28 @@ public class RecordProvider {
         return recordsRegistered.get(
                 (droppableOnly) ? droppableRecords.get(random.nextInt(droppableRecords.size())) : records.get(random.nextInt(records.size()))
         );
+    }
+
+    /**
+     * Identify custom disc from item stack.
+     *
+     * @param disc given item stack
+     * @return identified record or null
+     */
+    public Record identify(ItemStack disc) {
+        Record record = null;
+
+        if (disc.getType().equals(Record.BASE_DISC)) {
+            int hash = disc.hashCode();
+
+            for (String known : records) {
+                if (recordsRegistered.get(known).getItem().hashCode() == hash) {
+                    record = recordsRegistered.get(known);
+                    break;
+                }
+            }
+        }
+
+        return record;
     }
 }
