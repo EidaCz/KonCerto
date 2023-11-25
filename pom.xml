@@ -81,25 +81,5 @@
             <artifactId>json</artifactId>
             <version>20230618</version>
         </dependency>
-        <dependency>
-            <groupId>com.comphenix.protocol</groupId>
-            <artifactId>ProtocolLib</artifactId>
-            <version>5.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- RealisticSeasons optional support -->
-        <dependency>
-            <groupId>me.casperge.realisticseasons</groupId>
-            <artifactId>RealisticSeasons</artifactId>
-            <version>10.6.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- KotatkovyKlub optional support -->
-        <dependency>
-            <groupId>cz.eida.minecraft</groupId>
-            <artifactId>KotatkovyKlub</artifactId>
-            <version>1.0.0</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 </project>
